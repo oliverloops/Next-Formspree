@@ -1,0 +1,13 @@
+{
+  "forms": {
+    "contactForm": {
+      "name": "Next.js Formspree",
+      "actions": [
+        {
+          "type": "email",
+          "to": "oliveralr@protonmail.com"
+        }
+      ]
+    }
+  }
+}
