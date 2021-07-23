@@ -7,11 +7,11 @@
 @keyframes dissapear {
   from {
     opacity: 1;
-    transform: translateY(-34rem);
+    transform: translateY(-35rem);
   }
   to {
     opacity: 0;
-    transform: translateY(-40rem);
+    transform: translateY(-38rem);
   }
 }
 
@@ -32,7 +32,7 @@ a {
   text-decoration: none;
 }
 
-.dissapear > div {
+.dissapear {
   animation: dissapear 900ms ease-in;
 }
 

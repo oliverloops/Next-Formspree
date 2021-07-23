@@ -5,9 +5,17 @@ import { useForm, ValidationError } from "@formspree/react";
 //Utils
 import usePortal from "../utils/usePortal";
 
+const App = () => (
+  <div id="grid-parent">
+    <Form />
+  </div>
+);
+
 const Form = ({ id }) => {
   const [state, handleSubmit] = useForm("contactForm");
   const form = useRef(null);
+
+  console.log(state);
 
   useEffect(() => {
     if (state.succeeded) {
@@ -16,7 +24,7 @@ const Form = ({ id }) => {
   }, [state]);
 
   return (
-    <div className="md:max-w-screen-sm p-5 md:p-8">
+    <div className="md:max-w-xl my-12 p-5 md:p-8">
       {state.succeeded ? (
         <Modal id={id}>
           <motion.div
@@ -25,18 +33,18 @@ const Form = ({ id }) => {
             variants={{
               pageInitial: {
                 opacity: 0,
-                translateY: "-40rem",
+                translateY: "-35rem",
               },
               pageAnimate: {
                 opacity: 1,
-                translateY: "-34rem",
+                translateY: "-38rem",
               },
             }}
             transition={{ duration: 0.7 }}
-            className="flex justify-center w-full"
+            className="flex justify-center w-full md:max-w-xl"
           >
             <p className="text-center text-gray-700 bg-green-300 font-bold shadow-xl rounded-xl w-40 h-14 p-4">
-              ¡Enviado!{" "}
+              ¡Sent!{" "}
               <span role="img" aria-label="thumb">
                 👍 &nbsp;
               </span>
@@ -66,7 +74,7 @@ const Form = ({ id }) => {
       >
         <form
           ref={form}
-          className="flex flex-col justify-center rounded-3xl md:rounded-2xl shadow-lg p-2 md:p-4"
+          className="flex flex-col rounded-3xl md:rounded-2xl shadow-lg p-2 md:p-4"
           onSubmit={handleSubmit}
         >
           <label htmlFor="name" className="px-4 py-3 md:py-2 pt-6">
@@ -75,7 +83,7 @@ const Form = ({ id }) => {
               id="name"
               type="text"
               className="bg-gray-200 font-medium rounded-lg px-4 py-2 w-full"
-              placeholder="Ingresa tu nombre"
+              placeholder="Full Name"
               required
             />
             <ValidationError prefix="Name" field="name" errors={state.errors} />
@@ -86,7 +94,7 @@ const Form = ({ id }) => {
               id="email"
               type="email"
               className="bg-gray-200 font-medium rounded-lg px-4 py-2 w-full"
-              placeholder="Ingresa tu correo electrónico"
+              placeholder="E-mail"
               required
             />
             <ValidationError
@@ -101,7 +109,7 @@ const Form = ({ id }) => {
               id="phone"
               type="text"
               className="bg-gray-200 font-medium rounded-lg px-4 py-2 w-full"
-              placeholder="Ingresa tu número telefónico (opcional)"
+              placeholder="Phone Number"
             />
           </label>
           <label htmlFor="text" className="px-4 py-2">
@@ -110,7 +118,7 @@ const Form = ({ id }) => {
               id="text"
               type="text"
               className="bg-gray-200 font-medium rounded-lg px-4 py-2 w-full"
-              placeholder="Aquí puedes agregar más detalles, la idea que tengas en mente o preguntas que tengas al respecto."
+              placeholder="Add some text here, anything you want about my business..."
               required
             />
           </label>
@@ -118,9 +126,9 @@ const Form = ({ id }) => {
             <button
               type="submit"
               disabled={state.submitting}
-              className="bg-yellow-300 font-semibold rounded-full py-3 px-8"
+              className="bg-green-400 font-semibold rounded-full py-3 px-8"
             >
-              Enviar
+              Send
             </button>
           </div>
         </form>
@@ -135,4 +143,4 @@ const Modal = ({ id, children }) => {
   return createPortal(children, target);
 };
 
-export default Form;
+export default App;
