@@ -11,11 +11,10 @@ const App = () => (
   </div>
 );
 
+//Here's where the magic happens ✨
 const Form = ({ id }) => {
   const [state, handleSubmit] = useForm("contactForm");
   const form = useRef(null);
-
-  console.log(state);
 
   useEffect(() => {
     if (state.succeeded) {

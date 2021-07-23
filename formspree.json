@@ -5,7 +5,7 @@
       "actions": [
         {
           "type": "email",
-          "to": "oliveralr@protonmail.com"
+          "to": "email@example.com"
         }
       ]
     }

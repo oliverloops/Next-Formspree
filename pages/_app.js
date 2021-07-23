@@ -3,7 +3,7 @@ import "../styles/main.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <FormspreeProvider project="1728250366899780717">
+    <FormspreeProvider project="YOUR_PROJECT_ID">
       <Component {...pageProps} />
     </FormspreeProvider>
   );
