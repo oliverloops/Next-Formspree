@@ -16,6 +16,7 @@ const Form = ({ id }) => {
   const [state, handleSubmit] = useForm("contactForm");
   const form = useRef(null);
 
+  //resets form state as side effect
   useEffect(() => {
     if (state.succeeded) {
       form.current.reset();
@@ -136,6 +137,10 @@ const Form = ({ id }) => {
   );
 };
 
+/* 
+  Custom modal using a React Portal 
+  for success message after submit
+*/
 const Modal = ({ id, children }) => {
   const target = usePortal(id);
 
